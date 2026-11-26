@@ -1,0 +1,13 @@
+MLD - Touche pas au klaxon
+(clé primaire soulignée par PK, clé étrangère par FK)
+
+agence (id PK, nom UNIQUE)
+
+utilisateur (id PK, nom, prenom, telephone, email UNIQUE, mot_de_passe, role)
+
+trajet (id PK, agence_depart_id FK -> agence.id, agence_arrivee_id FK -> agence.id,
+        date_depart, date_arrivee, places_total, places_dispo,
+        auteur_id FK -> utilisateur.id)
+
+Contraintes : agence_depart_id <> agence_arrivee_id ; date_arrivee > date_depart ;
+places_dispo <= places_total.
