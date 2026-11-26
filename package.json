@@ -1,0 +1,7 @@
+{
+  "name": "touche-pas-au-klaxon",
+  "private": true,
+  "scripts": { "build": "sass --quiet --load-path=node_modules assets/scss/main.scss public/assets/css/app.css" },
+  "dependencies": { "bootstrap": "^5.3.3" },
+  "devDependencies": { "sass": "^1.77.0" }
+}
