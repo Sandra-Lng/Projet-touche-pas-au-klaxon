@@ -75,8 +75,13 @@ final class TrajetValidator
         if (!is_string($value)) {
             return null;
         }
-        $date = DateTimeImmutable::createFromFormat('!Y-m-d\TH:i', $value);
+        $format = 'Y-m-d\TH:i';
+        $date = DateTimeImmutable::createFromFormat('!' . $format, $value);
 
-        return $date === false ? null : $date;
+        if ($date === false || $date->format($format) !== $value) {
+            return null;
+        }
+
+        return $date;
     }
 }

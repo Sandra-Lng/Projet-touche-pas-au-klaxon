@@ -36,6 +36,13 @@ final class TrajetValidatorTest extends TestCase
         $this->assertNotEmpty($this->validate(['date_arrivee' => '2030-01-10T07:00'])['errors']);
     }
 
+    public function testDateImpossible(): void
+    {
+        $result = $this->validate(['date_arrivee' => '2030-02-30T10:00']);
+
+        $this->assertContains("La date d'arrivée est invalide.", $result['errors']);
+    }
+
     public function testDepartDansLePasse(): void
     {
         $this->assertNotEmpty($this->validate(['date_depart' => '2020-01-10T08:00', 'date_arrivee' => '2020-01-10T09:00'])['errors']);
