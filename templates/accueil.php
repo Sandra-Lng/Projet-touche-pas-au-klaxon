@@ -1,4 +1,7 @@
 <h1 class="h3 mb-4">Trajets proposés</h1>
+<?php if ($user === null): ?>
+  <p>Connectez-vous pour voir les détails d'un trajet.</p>
+<?php endif; ?>
 <?php if ($trajets === []): ?>
   <div class="alert alert-info">Aucun trajet disponible pour le moment.</div>
 <?php else: ?>
